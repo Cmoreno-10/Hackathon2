@@ -91,4 +91,20 @@ public class Contacto
         }
         listaContactos.remove(index);
     }
+    public Boolean  existeContacto(String nombre){
+        for (Contacto contacto :listaContactos){
+            if (contacto.getNombre().equalsIgnoreCase(nombre)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public String  buscarContacto(String nombre){
+        for (Contacto contacto : listaContactos){
+            if (contacto.getNombre().equalsIgnoreCase(nombre)){
+                return contacto.getCelular();
+            }
+        }
+        return "Contacto no existente";
+    }
 }

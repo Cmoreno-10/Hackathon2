@@ -29,8 +29,18 @@ public class Main {
             // Condicionar el ingreso del usuario
             switch (opcion)
             {
+                case 2:
+                    System.out.print(" Nombre del contacto a consultar: ");
+                    String nombreBuscado = scanner.nextLine();
+                    System.out.println("El contacto existe: " + contactoAux.existeContacto(nombreBuscado));
+                    break;
                 case 3:
                     contactoAux.listarContactos();
+                    break;
+                case 4:
+                System.out.print("Nombre del contacto a buscar: ");
+                String nombreBuscar = scanner.nextLine();
+                System.out.println("Teléfono: " +contactoAux.buscarContacto(nombreBuscar));
                     break;
                 case 5:
                     //Cambiar el parametro por dato buscado
