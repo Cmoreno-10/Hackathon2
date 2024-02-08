@@ -58,8 +58,18 @@ public class Main {
                 System.out.println(resultado);
                     break;
                 case 5:
-                    //Cambiar el parametro por dato buscado
-                    contactoAux.eliminarContacto(contactoAux);
+                    Contacto contactoEliminar;
+                    System.out.print("Ingrese el apellido que desea eliminar: ");
+                    contactoEliminar = contactoAux.buscarApellido(scanner.next());
+                    if(contactoEliminar.getApellido().equals(""))
+                    {
+                        System.out.println("Lo sentimos, el apellido que desea eliminar no se encuentra en la lista de contactos\n");
+                    }
+                    else
+                    {
+                        contactoAux.eliminarContacto(contactoEliminar);
+                    }
+                    break;
                 case 6:
                     // Consultar si la agenda esta llena
                     System.out.println(contactoAux.agendaLlena());
