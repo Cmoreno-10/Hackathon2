@@ -34,6 +34,15 @@ public class Contacto
     }
 
     /*Getters y Setters*/
+
+    public ArrayList<Contacto> getListaContactos() {
+        return listaContactos;
+    }
+
+    public void setListaContactos(ArrayList<Contacto> listaContactos) {
+        this.listaContactos = listaContactos;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -107,4 +116,18 @@ public class Contacto
         }
         return "Contacto no existente";
     }
+
+    public String agendaLlena(){
+        if (listaContactos.size() == 10) {
+            return "La agenda se encuentra llena. Por favor elimine algún contacto.\n";
+        } else {
+            return "La agenda aún no se encuentra llena. Puede agregar más contactos.\n";
+        }
+    }
+    public String espaciolibre(){
+        int espacioDisponible = 10 - listaContactos.size();
+        return "Tiene espacio para agregar [" + espacioDisponible + "] contacto.\n";
+    }
+
+
 }
