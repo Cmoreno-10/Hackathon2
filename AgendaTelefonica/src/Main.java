@@ -27,8 +27,20 @@ public class Main {
             opcion = scanner.nextInt();
 
             // Condicionar el ingreso del usuario
-            switch (opcion)
-            {
+            switch (opcion){
+                case 1:
+                    if  (contactoAux.getListaContactos().size() < 10) {
+                        System.out.print("Ingrese el nombre: ");
+                        String nombre = scanner.next();
+                        System.out.print("Ingrese el apellido: ");
+                        String apellido = scanner.next();
+                        System.out.print("Ingrese el numero: ");
+                        String numero = scanner.next();
+                        contactoAux.agregarLista(new Contacto(nombre, apellido, numero));
+                    } else {
+                        System.out.println("Ha llegado al limite de contactos agregados.\n");
+                    }
+                    break;
                 case 2:
                     System.out.print(" Nombre del contacto a consultar: ");
                     String nombreBuscado = scanner.nextLine();
@@ -45,6 +57,14 @@ public class Main {
                 case 5:
                     //Cambiar el parametro por dato buscado
                     contactoAux.eliminarContacto(contactoAux);
+                case 6:
+                    // Consultar si la agenda esta llena
+                    System.out.println(contactoAux.agendaLlena());
+                    break;
+                case 7:
+                    // Consultar si hay espacio libre
+                    System.out.println(contactoAux.espaciolibre());
+                    break;
                 case 8:
                     System.out.println("Gracias por visitar tu agenda telefonica. Adiós.");
                     break;
