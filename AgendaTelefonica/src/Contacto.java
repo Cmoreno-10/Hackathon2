@@ -80,7 +80,7 @@ public class Contacto
     {
         for (Contacto x: listaContactos)
         {
-            System.out.println(x.nombre + " " + x.apellido + " " + x.celular);
+            System.out.println(x.nombre + " " + x.apellido + " " + x.celular + "\n");
         }
     }
 
@@ -90,15 +90,16 @@ public class Contacto
      */
     public void eliminarContacto(Contacto c)
     {
-        System.out.println("Ingrese");
         int index = 0;
         for (int i = 0; i < listaContactos.size(); i++) {
             if(String.valueOf(listaContactos.get(i).nombre).equals(c.nombre))
             {
                 index = i;
+                break;
             }
         }
         listaContactos.remove(index);
+        System.out.println("Señor usuario, el contacto se ha eliminado correctamente!\n");
     }
     public Boolean  existeContacto(String nombre){
         for (Contacto contacto :listaContactos){
@@ -108,13 +109,42 @@ public class Contacto
         }
         return false;
     }
-    public String  buscarContacto(String nombre){
+    public String buscarContacto(String nombre){
         for (Contacto contacto : listaContactos){
             if (contacto.getNombre().equalsIgnoreCase(nombre)){
                 return contacto.getCelular();
             }
         }
         return "Contacto no existente";
+    }
+
+    /**
+     * Clase auxiliar para eliminar el registro ingresado por el usuario.
+     * @param apellido que recibe el nombre para devolver un objeto tipo clase Contacto.
+     * @return objeto Contacto.
+     */
+    public Contacto buscarApellido(String apellido)
+    {
+        //Instacia de clase que devolvera el contacto con sus atributos correspondientes
+        Contacto contactoFinal = new Contacto();
+        //Recorre los contactos actuales del arreglo listaContactos
+        for (Contacto contacto : listaContactos)
+        {
+            //Valida si el apellido se encuentra en la lista de listaContactos
+            if (String.valueOf(contacto.getApellido()).equalsIgnoreCase(apellido)){
+                contactoFinal.nombre = contacto.getNombre();
+                contactoFinal.apellido = contacto.getApellido();
+                contactoFinal.celular = contacto.getCelular();
+                break;
+            }
+            else
+            {
+                contactoFinal.nombre = "";
+                contactoFinal.apellido = "";
+                contactoFinal.celular = "";
+            }
+        }
+        return contactoFinal;
     }
 
     public String agendaLlena(){
