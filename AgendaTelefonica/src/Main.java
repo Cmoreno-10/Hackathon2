@@ -13,7 +13,7 @@ public class Main {
         // Recorrido del menú
         do {
             // Listar el menu
-            System.out.println("==== Menú =====\n" +
+            System.out.println("\n==== Menú =====\n" +
                     "1. Agregar contacto\n" +
                     "2. Verificar existencia de contacto\n" +
                     "3. Listar contactos\n" +
@@ -30,6 +30,7 @@ public class Main {
             // Condicionar el ingreso del usuario
             switch (opcion){
                 case 1:
+                    //Agregar contacto
                     if  (contactoAux.getListaContactos().size() < 10) {
                         System.out.print("Ingrese el nombre: ");
                         String nombre = scanner.next();
@@ -43,6 +44,7 @@ public class Main {
                     }
                     break;
                 case 2:
+                    //Existe el contacto
                     System.out.print(" Nombre del contacto a consultar: ");
                     String nombreBuscado = scanner.next();
                     String respuesta =contactoAux.existeContacto(nombreBuscado);
@@ -52,12 +54,14 @@ public class Main {
                     contactoAux.listarContactos();
                     break;
                 case 4:
+                    //Buscar contacto
                 System.out.print("Nombre del contacto a buscar: ");
                 String nombreBuscar = scanner.next();
                 String resultado = contactoAux.buscarContacto(nombreBuscar);
                 System.out.println(resultado);
                     break;
                 case 5:
+                    //Eliminar un contacto
                     Contacto contactoEliminar;
                     System.out.print("Ingrese el apellido que desea eliminar: ");
                     contactoEliminar = contactoAux.buscarApellido(scanner.next());
@@ -79,6 +83,7 @@ public class Main {
                     System.out.println(contactoAux.espaciolibre());
                     break;
                 case 8:
+                    //Salir
                     System.out.println("Gracias por visitar tu agenda telefonica. Adiós.");
                     break;
             }

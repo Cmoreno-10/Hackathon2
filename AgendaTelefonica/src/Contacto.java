@@ -65,6 +65,10 @@ public class Contacto {
         this.celular = celular;
     }
 
+    /**
+     * Agregar contacto a la lista
+     * @param nuevoContacto tipo clase Contacto para agregar a la lista
+     */
     public void agregarLista(Contacto nuevoContacto) {
         // Verificar si el nombre ya existe en la lista
         for (Contacto existente : listaContactos) {
@@ -75,7 +79,7 @@ public class Contacto {
         }
         // Si el nombre no existe, agregar el contacto a la lista
         listaContactos.add(nuevoContacto);
-        System.out.println("Contacto agregado correctamente.\n");
+        System.out.println("Contacto agregado correctamente.");
     }
 
     /**
@@ -83,7 +87,7 @@ public class Contacto {
      */
     public void listarContactos() {
         for (Contacto x : listaContactos) {
-            System.out.println(x.nombre + " " + x.apellido + " " + x.celular + "\n");
+            System.out.println(x.nombre + " " + x.apellido + " " + x.celular);
         }
     }
 
@@ -100,9 +104,14 @@ public class Contacto {
             }
         }
         listaContactos.remove(index);
-        System.out.println("Señor usuario, el contacto se ha eliminado correctamente!\n");
+        System.out.println("Señor usuario, el contacto se ha eliminado correctamente!");
     }
 
+    /**
+     * Validar si el contacto a buscar se encuentra actualmente en la lista
+     * @param nombre correspondiente al nombre a buscar
+     * @return retorna el valor correspondiente si encuentra o no el nombre en la agenda
+     */
     public String existeContacto(String nombre) {
         String respuesta = "";
         for (Contacto contacto : listaContactos) {
@@ -116,6 +125,11 @@ public class Contacto {
         return respuesta;
     }
 
+    /**
+     * Busca un contacto en específico por medio del nombre y devuelve su número de teléfono.
+     * @param nombre parametro que contiene el nombre a buscar
+     * @return el número de teléfono si el nombre está, en caso de no estar devuelve que el contacto no se encontró
+     */
     public String buscarContacto(String nombre) {
         String respuesta = "";
         for (Contacto contacto : listaContactos) {
@@ -155,16 +169,22 @@ public class Contacto {
         return contactoFinal;
     }
 
+    /**Valida si actualmente la agenta está llena
+     * @return En caso de estar o no llena, así mismo devolvera la respuesta
+     */
     public String agendaLlena() {
         if (listaContactos.size() == 10) {
-            return "La agenda se encuentra llena. Por favor elimine algún contacto.\n";
+            return "La agenda se encuentra llena. Por favor elimine algún contacto.";
         } else {
-            return "La agenda aún no se encuentra llena. Puede agregar más contactos.\n";
+            return "La agenda aún no se encuentra llena. Puede agregar más contactos.";
         }
     }
 
+    /**Valida los espacios que actualmente tiene la agenda
+     * @return Retorna la cantidad de espacios libres que tiene actualmente la agenda.
+     */
     public String espaciolibre() {
         int espacioDisponible = 10 - listaContactos.size();
-        return "Tiene espacio para agregar " + espacioDisponible + " contactos.\n";
+        return "Tiene espacio para agregar " + espacioDisponible + " contactos.";
     }
 }
