@@ -81,17 +81,9 @@ public class Contacto {
     /**
      * Método para devolver la lista actual de los contactos guardados
      */
-<<<<<<< HEAD
     public void listarContactos() {
         for (Contacto x : listaContactos) {
-            System.out.println(x.nombre + " " + x.apellido + " " + x.celular);
-=======
-    public void listarContactos()
-    {
-        for (Contacto x: listaContactos)
-        {
             System.out.println(x.nombre + " " + x.apellido + " " + x.celular + "\n");
->>>>>>> 037fa32956240c90ea7b812f74aea3e515c0fb56
         }
     }
 
@@ -99,13 +91,7 @@ public class Contacto {
      * @param c Es la cadena completa del contacto que se debe buscar para obtener el index
      *          y al final de la búsqueda borrarlo de la lista
      */
-<<<<<<< HEAD
     public void eliminarContacto(Contacto c) {
-        System.out.println("Ingrese");
-=======
-    public void eliminarContacto(Contacto c)
-    {
->>>>>>> 037fa32956240c90ea7b812f74aea3e515c0fb56
         int index = 0;
         for (int i = 0; i < listaContactos.size(); i++) {
             if (String.valueOf(listaContactos.get(i).nombre).equals(c.nombre)) {
@@ -117,71 +103,50 @@ public class Contacto {
         System.out.println("Señor usuario, el contacto se ha eliminado correctamente!\n");
     }
 
-    public String existeContacto(String nombre)
-    {
-        String respuesta ="";
-        for (Contacto contacto : listaContactos)
-        {
-            if (contacto.getNombre().equalsIgnoreCase(nombre))
-            {
+    public String existeContacto(String nombre) {
+        String respuesta = "";
+        for (Contacto contacto : listaContactos) {
+            if (contacto.getNombre().equalsIgnoreCase(nombre)) {
                 respuesta = "El contacto existe: " + contacto.getNombre();
                 break;
             } else {
                 respuesta = "El contacto no existe";
             }
         }
-         return respuesta;
+        return respuesta;
     }
-<<<<<<< HEAD
-    public String buscarContacto(String nombre)
-    {
-        String respuesta ="";
-        for (Contacto contacto : listaContactos)
-        {
-            if (contacto.getNombre().equalsIgnoreCase(nombre))
-            {
+
+    public String buscarContacto(String nombre) {
+        String respuesta = "";
+        for (Contacto contacto : listaContactos) {
+            if (contacto.getNombre().equalsIgnoreCase(nombre)) {
                 respuesta = "El telefono es: " + contacto.getCelular();
                 break;
             } else {
                 respuesta = "El contacto no se encontró";
-=======
-    public String buscarContacto(String nombre){
-        for (Contacto contacto : listaContactos){
-            if (contacto.getNombre().equalsIgnoreCase(nombre)){
-                return contacto.getCelular();
->>>>>>> 037fa32956240c90ea7b812f74aea3e515c0fb56
             }
-
-
         }
         return respuesta;
     }
 
-<<<<<<< HEAD
-
-
-=======
     /**
      * Clase auxiliar para eliminar el registro ingresado por el usuario.
+     *
      * @param apellido que recibe el nombre para devolver un objeto tipo clase Contacto.
      * @return objeto Contacto.
      */
-    public Contacto buscarApellido(String apellido)
-    {
+    public Contacto buscarApellido(String apellido) {
         //Instacia de clase que devolvera el contacto con sus atributos correspondientes
         Contacto contactoFinal = new Contacto();
         //Recorre los contactos actuales del arreglo listaContactos
-        for (Contacto contacto : listaContactos)
-        {
+        for (Contacto contacto : listaContactos) {
             //Valida si el apellido se encuentra en la lista de listaContactos
-            if (String.valueOf(contacto.getApellido()).equalsIgnoreCase(apellido)){
+            if (String.valueOf(contacto.getApellido()).equalsIgnoreCase(apellido)) {
                 contactoFinal.nombre = contacto.getNombre();
                 contactoFinal.apellido = contacto.getApellido();
                 contactoFinal.celular = contacto.getCelular();
                 break;
-            }
-            else
-            {
+            } else {
                 contactoFinal.nombre = "";
                 contactoFinal.apellido = "";
                 contactoFinal.celular = "";
@@ -189,19 +154,17 @@ public class Contacto {
         }
         return contactoFinal;
     }
->>>>>>> 037fa32956240c90ea7b812f74aea3e515c0fb56
 
-    public String agendaLlena(){
+    public String agendaLlena() {
         if (listaContactos.size() == 10) {
             return "La agenda se encuentra llena. Por favor elimine algún contacto.\n";
         } else {
             return "La agenda aún no se encuentra llena. Puede agregar más contactos.\n";
         }
     }
-    public String espaciolibre(){
+
+    public String espaciolibre() {
         int espacioDisponible = 10 - listaContactos.size();
-        return "Tiene espacio para agregar [" + espacioDisponible + "] contacto.\n";
+        return "Tiene espacio para agregar " + espacioDisponible + " contactos.\n";
     }
-
-
 }
