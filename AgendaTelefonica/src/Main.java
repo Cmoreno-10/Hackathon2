@@ -1,3 +1,4 @@
+import javax.print.attribute.standard.PresentationDirection;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -43,16 +44,18 @@ public class Main {
                     break;
                 case 2:
                     System.out.print(" Nombre del contacto a consultar: ");
-                    String nombreBuscado = scanner.nextLine();
-                    System.out.println("El contacto existe: " + contactoAux.existeContacto(nombreBuscado));
+                    String nombreBuscado = scanner.next();
+                    String respuesta =contactoAux.existeContacto(nombreBuscado);
+                    System.out.println(respuesta);
                     break;
                 case 3:
                     contactoAux.listarContactos();
                     break;
                 case 4:
                 System.out.print("Nombre del contacto a buscar: ");
-                String nombreBuscar = scanner.nextLine();
-                System.out.println("Teléfono: " +contactoAux.buscarContacto(nombreBuscar));
+                String nombreBuscar = scanner.next();
+                String resultado = contactoAux.buscarContacto(nombreBuscar);
+                System.out.println(resultado);
                     break;
                 case 5:
                     //Cambiar el parametro por dato buscado
